@@ -1,7 +1,5 @@
 //Variable que mantiene el estado visible del carrito
 var carritoVisible = false;
-const btnEnviar = document.querySelector('#btnEnviar');
-var mensaje;
 
 //Espermos que todos los elementos de la pàgina cargen para ejecutar el script
 if(document.readyState == 'loading'){
@@ -54,7 +52,13 @@ function pagarClicked(){
     actualizarTotalCarrito();
     ocultarCarrito();
 }
-
+function enviarWhatsapp(){
+   var tlf = "+573243106287";
+   
+   var titulo = item.getElementsByClassName('titulo-item')[0].innerText;
+    var url="https://wa.me/+573243106287?text="+titulo;
+    window.open(url,'_blank').focus();
+}
 //Funciòn que controla el boton clickeado de agregar al carrito
 function agregarAlCarritoClicked(event){
     var button = event.target;
@@ -72,7 +76,6 @@ function agregarAlCarritoClicked(event){
 //Funcion que hace visible el carrito
 function hacerVisibleCarrito(){
     carritoVisible = true;
-    var carrito = document.getElementsByClassName('carrito')[0];
     carrito.style.marginRight = '0';
     carrito.style.opacity = '1';
 
